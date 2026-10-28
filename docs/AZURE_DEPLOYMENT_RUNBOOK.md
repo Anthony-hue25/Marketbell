@@ -58,7 +58,9 @@ temporarily from the portal's *Connect* blade:
 SELECT * FROM pgaadauth_create_principal('mktbell-staging-app-id', false, false);
 \c marketbell
 CREATE SCHEMA IF NOT EXISTS marketbell AUTHORIZATION "mktbell-staging-app-id";
-GRANT CONNECT, TEMPORARY ON DATABASE marketbell TO "mktbell-staging-app-id";
+GRANT CONNECT, TEMPORARY, CREATE ON DATABASE marketbell TO "mktbell-staging-app-id";
+-- CREATE is required: the app runs CREATE SCHEMA IF NOT EXISTS at start-up, and PostgreSQL checks the
+-- database CREATE privilege before checking whether the schema exists.
 ```
 
 The app creates its tables, functions and triggers inside schema `marketbell` on first start (migrations are
