@@ -345,6 +345,12 @@ def pool(url, schema=None):
     key = (url, schema)
     with _POOLS_LOCK:
         if key not in _POOLS:
+            if os.environ.get('MARKETBELL_TEST_DATABASE_URL'):
+                # Test runs create one schema (and pool) per test. Release earlier tests' idle
+                # connections so a long suite stays under the server's max_connections (default 100).
+                # Production uses a single pool, so this never applies there.
+                for other in _POOLS.values():
+                    other.close()
             _POOLS[key] = PgPool(url, schema)
         return _POOLS[key]
 
