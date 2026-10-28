@@ -1,0 +1,191 @@
+{
+  "at": "2026-10-15T03:28:26.001173+00:00",
+  "model": "MOCKED \u2014 no credentials or paid load calls",
+  "bursts": [
+    {
+      "events": 1,
+      "securities": [
+        "PSX"
+      ],
+      "queue_wait": {
+        "n": 1,
+        "p50_ms": 50.00978708267212,
+        "p95_ms": 50.00978708267212,
+        "min_ms": 50.00978708267212,
+        "max_ms": 50.00978708267212
+      },
+      "policy_evaluation": {
+        "n": 1,
+        "p50_ms": 0.0607,
+        "p95_ms": 0.0607,
+        "min_ms": 0.0607,
+        "max_ms": 0.0607
+      },
+      "duplicate_arrivals": 1,
+      "unique_jobs": 1,
+      "jobs": {
+        "completed": 1
+      },
+      "enqueue": {
+        "n": 2,
+        "p50_ms": 172.7330999856349,
+        "p95_ms": 183.6337000131607,
+        "min_ms": 161.8324999581091,
+        "max_ms": 183.6337000131607
+      },
+      "resolution_mocked": {
+        "n": 1,
+        "p50_ms": 361.6131000453606,
+        "p95_ms": 361.6131000453606,
+        "min_ms": 361.6131000453606,
+        "max_ms": 361.6131000453606
+      },
+      "impact_query": {
+        "n": 40,
+        "p50_ms": 12.775999988662079,
+        "p95_ms": 21.701499994378537,
+        "min_ms": 9.698999987449497,
+        "max_ms": 22.84459996735677
+      },
+      "wall_seconds": 1.153,
+      "model_calls": 2,
+      "query_plan": [
+        [
+          5,
+          0,
+          50,
+          "SEARCH impact_cases USING INDEX impact_period (tenant=? AND origin=? AND created>?)"
+        ]
+      ]
+    },
+    {
+      "events": 10,
+      "securities": [
+        "PSX",
+        "VLO",
+        "NVDA",
+        "JPM"
+      ],
+      "queue_wait": {
+        "n": 10,
+        "p50_ms": 1959.0117037296295,
+        "p95_ms": 3538.9870405197144,
+        "min_ms": 355.98278045654297,
+        "max_ms": 3538.9870405197144
+      },
+      "policy_evaluation": {
+        "n": 10,
+        "p50_ms": 0.07385,
+        "p95_ms": 0.1423,
+        "min_ms": 0.0257,
+        "max_ms": 0.1423
+      },
+      "duplicate_arrivals": 10,
+      "unique_jobs": 10,
+      "jobs": {
+        "completed": 10
+      },
+      "enqueue": {
+        "n": 20,
+        "p50_ms": 68.92610000795685,
+        "p95_ms": 153.55380001710728,
+        "min_ms": 14.364400005433708,
+        "max_ms": 153.55380001710728
+      },
+      "resolution_mocked": {
+        "n": 10,
+        "p50_ms": 383.86015000287443,
+        "p95_ms": 456.0339999734424,
+        "min_ms": 256.89939997391775,
+        "max_ms": 456.0339999734424
+      },
+      "impact_query": {
+        "n": 40,
+        "p50_ms": 9.194949991069734,
+        "p95_ms": 12.858400004915893,
+        "min_ms": 4.183000011835247,
+        "max_ms": 13.205099967308342
+      },
+      "wall_seconds": 4.534,
+      "model_calls": 20,
+      "query_plan": [
+        [
+          5,
+          0,
+          50,
+          "SEARCH impact_cases USING INDEX impact_period (tenant=? AND origin=? AND created>?)"
+        ]
+      ]
+    },
+    {
+      "events": 100,
+      "securities": [
+        "PSX",
+        "VLO",
+        "NVDA",
+        "JPM"
+      ],
+      "queue_wait": {
+        "n": 100,
+        "p50_ms": 18088.998645544052,
+        "p95_ms": 33255.019783973694,
+        "min_ms": 2760.0333094596863,
+        "max_ms": 34765.009582042694
+      },
+      "policy_evaluation": {
+        "n": 100,
+        "p50_ms": 0.051750000000000004,
+        "p95_ms": 0.1591,
+        "min_ms": 0.0196,
+        "max_ms": 0.3367
+      },
+      "duplicate_arrivals": 100,
+      "unique_jobs": 100,
+      "jobs": {
+        "completed": 100
+      },
+      "enqueue": {
+        "n": 200,
+        "p50_ms": 55.2985499962233,
+        "p95_ms": 133.0240000388585,
+        "min_ms": 2.9184999875724316,
+        "max_ms": 185.69539999589324
+      },
+      "resolution_mocked": {
+        "n": 100,
+        "p50_ms": 331.1353000171948,
+        "p95_ms": 451.32630004081875,
+        "min_ms": 208.85419996920973,
+        "max_ms": 632.1017000009306
+      },
+      "impact_query": {
+        "n": 40,
+        "p50_ms": 12.9350500064902,
+        "p95_ms": 24.756399972829968,
+        "min_ms": 5.563800048548728,
+        "max_ms": 25.99330001976341
+      },
+      "wall_seconds": 37.851,
+      "model_calls": 200,
+      "query_plan": [
+        [
+          5,
+          0,
+          50,
+          "SEARCH impact_cases USING INDEX impact_period (tenant=? AND origin=? AND created>?)"
+        ]
+      ]
+    }
+  ],
+  "database_integrity": {
+    "records": 605,
+    "head": "42b352d80f00da35462f2c1d6fafbccef581759278f268e690cf8992dbb756c1"
+  },
+  "backup_restore": {
+    "records": 605,
+    "head": "42b352d80f00da35462f2c1d6fafbccef581759278f268e690cf8992dbb756c1"
+  },
+  "resources": {
+    "status": "psutil unavailable"
+  }
+}

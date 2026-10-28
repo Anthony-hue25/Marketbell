@@ -1,0 +1,20 @@
+services:
+  marketbell:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    env_file: .env.production
+    environment:
+      # Single-container mode (SQLite volume): API and worker in one process; see compose.azure-local.yaml
+      # for the production-like split topology on PostgreSQL.
+      MARKETBELL_WORKER: "1"
+    volumes:
+      - marketbell-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    restart: unless-stopped
+volumes:
+  marketbell-data:

@@ -1,0 +1,13 @@
+{
+  "name": "marketbell",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node scripts/test.mjs",
+    "lint": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs"
+  }
+}

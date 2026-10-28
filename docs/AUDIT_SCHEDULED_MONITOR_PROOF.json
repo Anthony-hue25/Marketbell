@@ -1,0 +1,56 @@
+{
+  "result": "PASS",
+  "at": "2026-10-15T03:06:32.692382+00:00",
+  "actual_process_identity_checked": true,
+  "browser_connections": 0,
+  "sessions": 0,
+  "automatic_checks": [
+    {
+      "active": true,
+      "budgetDeferred": false,
+      "catchup": false,
+      "catchupCoverage": "Bounded source lookback: 7 days, at most 5 returned headlines per security; complete missed-event coverage is not guaranteed.",
+      "checkedAt": "2026-10-15T03:05:31.393978+00:00",
+      "coverageLimitations": "Search headlines only; query matching may include unrelated or multi-company stories. Empty polls do not prove complete coverage.",
+      "deferredNotices": 0,
+      "intervalSeconds": 60,
+      "intradayQuotes": false,
+      "lastReceivedAt": "2026-10-15T03:05:31.393978+00:00",
+      "lastSuccessAt": "2026-10-15T03:05:31.393978+00:00",
+      "newInvestigations": 0,
+      "newUniqueItems": 39,
+      "receivedItems": 40,
+      "source": "Public news headlines; daily price baseline",
+      "sourceErrors": [],
+      "status": "Watching for new information",
+      "symbols": 8
+    },
+    {
+      "active": true,
+      "budgetDeferred": false,
+      "catchup": false,
+      "catchupCoverage": "Bounded source lookback: 7 days, at most 5 returned headlines per security; complete missed-event coverage is not guaranteed.",
+      "checkedAt": "2026-10-15T03:06:32.424165+00:00",
+      "coverageLimitations": "Search headlines only; query matching may include unrelated or multi-company stories. Empty polls do not prove complete coverage.",
+      "deferredNotices": 0,
+      "intervalSeconds": 60,
+      "intradayQuotes": false,
+      "lastReceivedAt": "2026-10-15T03:06:32.424165+00:00",
+      "lastSuccessAt": "2026-10-15T03:06:32.424165+00:00",
+      "newInvestigations": 0,
+      "newUniqueItems": 19,
+      "receivedItems": 40,
+      "source": "Public news headlines; daily price baseline",
+      "sourceErrors": [],
+      "status": "Watching for new information",
+      "symbols": 8
+    }
+  ],
+  "unique_live_headlines": 58,
+  "model_invocations": 0,
+  "mode": "Real scheduled source monitoring; fresh inference deliberately disabled to bound this endurance check. Full real-model resolution is a separate acceptance artifact.",
+  "audit": {
+    "records": 2,
+    "head": "6b1663a9e62478c60da683a8261b0757064345a4c319b0ae2a133aca7e04fbac"
+  }
+}

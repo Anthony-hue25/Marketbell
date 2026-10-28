@@ -1,0 +1,128 @@
+{
+  "components": [
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/provider.py",
+      "source_sha256": "3abe530f5a0d66bbb74d4d48eab7c2b6d0a4287c5cd1eccd5c1d9530100c9c99",
+      "target": "backend/vendor/provider.py",
+      "target_sha256": "711b090f62544054cf97797b2dcb5c68b7f849ac8ff5641a46258556ddbbbc39",
+      "adaptation": "Copied then adapted; secure file/environment credential loading, fixed Nebius endpoint, no silent mock fallback. Added JSON output, temperature, usage metadata; disabled remote-detail logs.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/calendar.py",
+      "source_sha256": "4390d18b487c0894d4ae1f620ab687a13483aab1d0009324c430bc50f70fa86b",
+      "target": "backend/vendor/calendar.py",
+      "target_sha256": "4390d18b487c0894d4ae1f620ab687a13483aab1d0009324c430bc50f70fa86b",
+      "adaptation": "Copied unchanged; real XNYS sessions, early closes and completed-session delay.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/alpaca_contract.py",
+      "source_sha256": "2082c8bb6221459f0cc7d5c8c274b7ab36f1bdfc510431a45217d94c72d0bd4e",
+      "target": "backend/vendor/alpaca_contract.py",
+      "target_sha256": "cf63d61d60017417947219bb99f0d4bcd8e8c7dd71978d02b9ffe153b085b033",
+      "adaptation": "Copied; relative calendar import adapted. Same strict OHLCV parser and pagination.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/acquisition.py",
+      "source_sha256": "5287fdf609bbd01b0941b3787b949fc993c8ea528f8c7fdcbd470aae083d0ce7",
+      "target": "backend/market.py",
+      "target_sha256": "dee7c02dab1fae753abe0ab9e80e6e5bc4263936c87b8232764cf6a408939086",
+      "adaptation": "Adapted download_symbols per-call symbol scope and explicit Alpaca process-variable secret contract.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/trading-agent-lab/src/market_download.py",
+      "source_sha256": "c6b2a51b1bd351bf47a799720a667c92bedce3d4ceac55eb156cd4ffe25abc25",
+      "target": "backend/market.py",
+      "target_sha256": "dee7c02dab1fae753abe0ab9e80e6e5bc4263936c87b8232764cf6a408939086",
+      "adaptation": "Adapted Massive fixed-host transport and safe errors, reduced to bounded daily bars. Existing key currently returns 401; no replacement secret requested.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/research_web.py",
+      "source_sha256": "311a47b14d71c0677e59d572c4c9c386f85740b9a15f90dabcd0cf61628bdb79",
+      "target": "backend/market.py",
+      "target_sha256": "dee7c02dab1fae753abe0ab9e80e6e5bc4263936c87b8232764cf6a408939086",
+      "adaptation": "Adapted bounded RSS retrieval, untrusted-source handling and sanitization; added two allowlisted issuer pages.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/safety.py",
+      "source_sha256": "868d125d30355fffb09bd22cfe7f4f462e0efd4bb35dd15ccf82e07a0848e4d8",
+      "target": "backend/store.py",
+      "target_sha256": "c3fe2a25219c0d50857a7932edde361ff89634773b638256f42b355851b5a4a1",
+      "adaptation": "Adapted digest and parent-hash audit principles; replaced filesystem locks and single JSON files with transactional SQLite and immutable triggers.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/lab/forward/governor_v2.py",
+      "source_sha256": "bc406bc0fef157551303ce9c2c729675d1a8c96093a0d0f0ce45c7acd8512df4",
+      "target": "backend/engine.py",
+      "target_sha256": "c29cd6b508bdfeda8176fc042c65013ff73ba20433d045cce9fe445ebb73be7e",
+      "adaptation": "Adapted hard-policy precedence and execution-disabled authority. No source trading engine copied.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    },
+    {
+      "source": "C:/Users/antho/adaptive-universe-lab/tests/test_integrity_replay.py",
+      "source_sha256": "ced07bda7b0a8cf0d8bbdc4084a556d5966ec4883849089d8f2ce0b478b26e7b",
+      "target": "test/test_backend.py",
+      "target_sha256": "cb91f0a237ab4a7cdcb5d3f75d43760d8a1cbbeac7fa8bf22eb3741adeb84eda",
+      "adaptation": "Adapted deterministic offline scenarios, stage recovery and duplicate controls; new independent live safety evaluations added.",
+      "license": "Original local repositories have no detected license file; ownership/redistribution confirmation required before public source release."
+    }
+  ],
+  "runtime_dependencies": [
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    {
+      "name": "pandas",
+      "version": "2.2.3",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    {
+      "name": "exchange_calendars",
+      "version": "4.11.1",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ]
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.5",
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ]
+    }
+  ],
+  "secrets_copied": false,
+  "source_repositories_modified": false
+}

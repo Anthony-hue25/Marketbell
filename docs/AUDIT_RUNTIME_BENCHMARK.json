@@ -1,0 +1,127 @@
+{
+  "at": "2026-10-15T02:36:00.030841+00:00",
+  "startup_ms": 7996.199499990325,
+  "scope": "Isolated local server, mocked-free idle service, no model calls",
+  "endpoints": {
+    "/": {
+      "samples": 30,
+      "p50_ms": 10.685749992262572,
+      "p95_ms": 31.825200014282018,
+      "max_ms": 243.42439998872578,
+      "response_bytes": 547
+    },
+    "/healthz": {
+      "samples": 60,
+      "p50_ms": 25.658700003987178,
+      "p95_ms": 47.172000049613416,
+      "max_ms": 47.59550001472235,
+      "response_bytes": 65
+    },
+    "/api/state": {
+      "samples": 40,
+      "p50_ms": 43.57934999279678,
+      "p95_ms": 104.91540003567934,
+      "max_ms": 2172.503100009635,
+      "response_bytes": 3089
+    },
+    "/api/impact?days=30&dataset=workspace": {
+      "samples": 40,
+      "p50_ms": 31.257549999281764,
+      "p95_ms": 58.79459995776415,
+      "max_ms": 60.948199999984354,
+      "response_bytes": 1585
+    },
+    "/api/universe": {
+      "samples": 40,
+      "p50_ms": 36.55434999382123,
+      "p95_ms": 64.22060000477359,
+      "max_ms": 80.10910003213212,
+      "response_bytes": 3828
+    }
+  },
+  "idle_window_seconds": 15.125,
+  "first_diagnostics": {
+    "resources": {
+      "pid": 28064,
+      "cpu_seconds": 10.015625,
+      "rss_bytes": 35135488,
+      "peak_rss_bytes": 76935168
+    },
+    "newsUnique": 0,
+    "materialCases": 0,
+    "decisionBacklog": 0,
+    "rulesApplied": 0,
+    "recoveryAttempts": 0,
+    "averageCompletedJobMs": 0,
+    "sourceHealth": null,
+    "jobs": {},
+    "oldestPending": null,
+    "model": {
+      "attempts": 0,
+      "reserved_usd": 0,
+      "avg_model_ms": 0,
+      "failures": 0
+    },
+    "heartbeat": {
+      "worker": {
+        "at": "2026-10-15T02:35:59.388592+00:00",
+        "status": "running"
+      },
+      "monitor": {
+        "at": "2026-10-15T02:35:59.508862+00:00",
+        "status": "running"
+      }
+    }
+  },
+  "last_diagnostics": {
+    "resources": {
+      "pid": 28064,
+      "cpu_seconds": 10.296875,
+      "rss_bytes": 9699328,
+      "peak_rss_bytes": 76935168
+    },
+    "newsUnique": 0,
+    "materialCases": 0,
+    "decisionBacklog": 0,
+    "rulesApplied": 0,
+    "recoveryAttempts": 0,
+    "averageCompletedJobMs": 0,
+    "sourceHealth": null,
+    "jobs": {},
+    "oldestPending": null,
+    "model": {
+      "attempts": 0,
+      "reserved_usd": 0,
+      "avg_model_ms": 0,
+      "failures": 0
+    },
+    "heartbeat": {
+      "worker": {
+        "at": "2026-10-15T02:36:20.121897+00:00",
+        "status": "running"
+      },
+      "monitor": {
+        "at": "2026-10-15T02:35:59.508862+00:00",
+        "status": "running"
+      }
+    }
+  },
+  "idle_cpu_percent_one_core": 1.859504132231405,
+  "teach_once_api": {
+    "mode": "Verified authentic replay; explicit approvals issued by the test harness in an isolated workspace",
+    "start_ms": 440.52870001178235,
+    "approval_ms": 61.57990003703162,
+    "counts": {
+      "developments": 2,
+      "material": 2,
+      "autonomous": 1,
+      "attention": 0,
+      "user_involved": 1,
+      "rule_reused": 1,
+      "blocked": 0,
+      "unresolved": 0,
+      "news_screened": 0
+    },
+    "result": "PASS"
+  }
+}

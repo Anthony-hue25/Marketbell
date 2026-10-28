@@ -1,0 +1,48 @@
+{
+  "source": "https://api.osv.dev/v1/querybatch and https://pypi.org/pypi/<package>/json",
+  "direct_dependencies": [
+    {
+      "package": "requests",
+      "version": "2.34.2",
+      "latest_pypi": "2.34.2",
+      "advisories": []
+    },
+    {
+      "package": "python-dotenv",
+      "version": "1.2.4",
+      "latest_pypi": "1.2.4",
+      "advisories": []
+    },
+    {
+      "package": "pandas",
+      "version": "2.2.3",
+      "latest_pypi": "3.0.6",
+      "advisories": []
+    },
+    {
+      "package": "numpy",
+      "version": "2.2.6",
+      "latest_pypi": "2.5.4",
+      "advisories": []
+    },
+    {
+      "package": "exchange_calendars",
+      "version": "4.11.1",
+      "latest_pypi": "4.13.2",
+      "advisories": []
+    },
+    {
+      "package": "tzdata",
+      "version": "2026.5",
+      "latest_pypi": "2026.5",
+      "advisories": []
+    },
+    {
+      "package": "gunicorn",
+      "version": "23.0.0",
+      "latest_pypi": "26.2.0",
+      "advisories": []
+    }
+  ],
+  "limitations": "Advisory database snapshot; not proof of absence of vulnerabilities. Transitive lock validation follows isolated install."
+}

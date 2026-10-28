@@ -1,0 +1,211 @@
+{
+  "at": "2026-10-15T01:16:17.575786+00:00",
+  "sources": [
+    {
+      "url": "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt",
+      "retrieved_at": "2026-10-15T01:16:17.026756+00:00",
+      "sha256": "2c9f2008b7b65cf2ffa82a6371b61b78e9c723be0bc5355dc2927145d5c61258"
+    },
+    {
+      "url": "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt",
+      "retrieved_at": "2026-10-15T01:16:17.553749+00:00",
+      "sha256": "c98346082a528ecbd4374d799bf5f41877b259af705ad5f2fd785ecb4105c300"
+    }
+  ],
+  "results": [
+    {
+      "symbol": "PSX",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "VLO",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "NVDA",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "JPM",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "AAPL",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "MSFT",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "GOOGL",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "AMZN",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "META",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "TSLA",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "XOM",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "CVX",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "COP",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "BAC",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "GS",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "V",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "JNJ",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "UNH",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "LLY",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "WMT",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "COST",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "PG",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "CAT",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "GE",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "RTX",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "NEE",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "DUK",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "PLD",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    },
+    {
+      "symbol": "AMD",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "AVGO",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "NFLX",
+      "expected_exchange": "XNAS",
+      "directory_exchange": "XNAS",
+      "match": true
+    },
+    {
+      "symbol": "DIS",
+      "expected_exchange": "XNYS",
+      "directory_exchange": "XNYS",
+      "match": true
+    }
+  ],
+  "passed": 32,
+  "limitations": "Curated sector assignments are product metadata, not an authoritative GICS classification. Directory connectivity does not establish redistribution rights."
+}

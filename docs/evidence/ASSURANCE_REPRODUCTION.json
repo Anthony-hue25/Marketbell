@@ -1,0 +1,54 @@
+{
+ "generated": "2026-10-19",
+ "method": "scripts/assurance_repro.py run unchanged against the pre-assurance snapshot and the current code; test doubles only",
+ "pre_assurance": {
+  "evidence_revision_overwrites_first_version": true,
+  "winter_daily_data_published_before_close": "2026-12-15T20:00:00+00:00",
+  "bank_of_england_matches_bank_of_america": true,
+  "rule_approved_after_detection_authorizes_case": true,
+  "headline_only_case_handled_automatically_under_rule": true,
+  "distinct_visitors_blocked_after_20_sessions_behind_proxy": 5,
+  "five_hour_stale_monitor_reported": {
+   "active": true,
+   "status": "Watching for new information"
+  },
+  "healthz_status_when_database_down": "409 Conflict",
+  "second_worker_requeues_live_running_job": true,
+  "monitor_blocked_after_visitor_calls": "DAILY_MODEL_BUDGET_EXHAUSTED",
+  "code": "pre-assurance"
+ },
+ "current": {
+  "evidence_revision_overwrites_first_version": false,
+  "winter_daily_data_published_before_close": "2026-12-15T21:00:00+00:00",
+  "bank_of_england_matches_bank_of_america": false,
+  "rule_approved_after_detection_authorizes_case": false,
+  "headline_only_case_handled_automatically_under_rule": false,
+  "distinct_visitors_blocked_after_20_sessions_behind_proxy": 0,
+  "five_hour_stale_monitor_reported": {
+   "active": false,
+   "status": "Monitoring has not checked in recently; the background worker may be stopped."
+  },
+  "healthz_status_when_database_down": "503 Service Unavailable",
+  "second_worker_requeues_live_running_job": false,
+  "monitor_blocked_after_visitor_calls": false,
+  "code": "current",
+  "database": "sqlite"
+ },
+ "current_postgres16": {
+  "evidence_revision_overwrites_first_version": false,
+  "winter_daily_data_published_before_close": "2026-12-15T21:00:00+00:00",
+  "bank_of_england_matches_bank_of_america": false,
+  "rule_approved_after_detection_authorizes_case": false,
+  "headline_only_case_handled_automatically_under_rule": false,
+  "distinct_visitors_blocked_after_20_sessions_behind_proxy": 0,
+  "five_hour_stale_monitor_reported": {
+   "active": false,
+   "status": "Monitoring has not checked in recently; the background worker may be stopped."
+  },
+  "healthz_status_when_database_down": "503 Service Unavailable",
+  "second_worker_requeues_live_running_job": false,
+  "monitor_blocked_after_visitor_calls": false,
+  "code": "current",
+  "database": "postgres"
+ }
+}

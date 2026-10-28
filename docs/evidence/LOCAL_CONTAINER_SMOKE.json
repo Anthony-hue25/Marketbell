@@ -1,0 +1,133 @@
+{
+ "base": "http://127.0.0.1:8080",
+ "passed": true,
+ "results": [
+  {
+   "check": "liveness",
+   "pass": true,
+   "detail": 200
+  },
+  {
+   "check": "readiness_database",
+   "pass": true,
+   "detail": {
+    "status": "ok",
+    "database": "ready",
+    "schema": 9,
+    "execution_enabled": false,
+    "worker_in_process": false
+   }
+  },
+  {
+   "check": "worker_not_in_web_process",
+   "pass": true,
+   "detail": false
+  },
+  {
+   "check": "index",
+   "pass": true,
+   "detail": 200
+  },
+  {
+   "check": "csp",
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; obj"
+  },
+  {
+   "check": "session_cookie_flags",
+   "pass": true,
+   "detail": " Path=/; HttpOnly; SameSite=Strict; Max-Age=2592000; Secure"
+  },
+  {
+   "check": "no_execution_capability",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "morning_brief_and_quiet_log",
+   "pass": true,
+   "detail": [
+    "day",
+    "waiting",
+    "read",
+    "setAside",
+    "investigated",
+    "needYou",
+    "sentence"
+   ]
+  },
+  {
+   "check": "csrf_enforced",
+   "pass": true,
+   "detail": 403
+  },
+  {
+   "check": "admin_protected",
+   "pass": true,
+   "detail": 403
+  },
+  {
+   "check": "worker_heartbeat_fresh",
+   "pass": true,
+   "detail": {
+    "lastHeartbeat": "2026-10-22T00:50:17.141535+00:00",
+    "monitorHeartbeat": "2026-10-22T00:50:17.139080+00:00",
+    "healthy": true
+   }
+  },
+  {
+   "check": "webhook_accepted",
+   "pass": true,
+   "detail": "{\"job\": \"aabf5887e672683266b6d8c842f831e6\", \"status\": \"accepted_for_investigation\"}"
+  },
+  {
+   "check": "webhook_event_reached_durable_state",
+   "pass": true,
+   "detail": "completed"
+  }
+ ],
+ "image": "sha256:c8f9e60c4a243b8db15a7030ac939272d0dc72c9aefac2b3fa71dca5b341db72",
+ "build_lessons_check": {
+  "brief": "Today I read 2 new items, set aside 1, investigated 1. Nothing needs you.",
+  "scan": {
+   "scanSeconds": 0.08,
+   "fetchSeconds": 0.06,
+   "waiting": 0,
+   "symbols": 14
+  },
+  "channels": {
+   "google_news": {
+    "ok": true,
+    "error": null,
+    "disabled": false
+   },
+   "press_wires": {
+    "ok": true,
+    "error": null,
+    "disabled": false
+   },
+   "sec_edgar": {
+    "ok": false,
+    "error": "SEC_USER_AGENT_NOT_SET",
+    "disabled": true
+   }
+  },
+  "quiet": [
+   "COMMENTARY_ONLY"
+  ],
+  "jobs": [
+   [
+    "5c973a273a5285ed6191581a20715fa9",
+    "watch-event",
+    "completed"
+   ],
+   [
+    "aabf5887e672683266b6d8c842f831e6",
+    "watch-event",
+    "completed"
+   ]
+  ],
+  "mb-api_sigterm_exit": "0",
+  "mb-worker_sigterm_exit": "0"
+ }
+}

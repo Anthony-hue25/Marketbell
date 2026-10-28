@@ -1,0 +1,89 @@
+{
+  "at": "2026-10-15T02:27:12.917685+00:00",
+  "result": "PASS",
+  "synthetic_input": true,
+  "model_call": "Genuine Nebius/Nemotron",
+  "original": {
+    "event": "labelled-followup-evaluation",
+    "symbol": "PSX",
+    "at": "2026-10-07T02:27:09.115728+00:00",
+    "hypothesis": "SYNTHETIC test: a newly awarded contract may improve business outlook, but terms are uncertain.",
+    "research": {
+      "summary": "Hypothetical issuer reported an awarded contract; financial terms are unknown."
+    },
+    "challenge": {
+      "summary": "Independent confirmation and quantified terms are missing."
+    },
+    "rationale": "A cautious research note was proposed, not a trade."
+  },
+  "later": [
+    {
+      "id": "b1fceb0902d10c052f71797532b82c3a30877a6043620a68f5f3a41118e5dfda",
+      "type": "SYNTHETIC_RETROSPECTIVE_EVALUATION",
+      "text": "HYPOTHETICAL later issuer correction: The previously reported contract was not awarded. Negotiations ended without an agreement. No revenue is expected from that negotiation.",
+      "source": "Controlled labelled model test, not market evidence",
+      "published_at": "2026-10-13T02:27:09.115728+00:00"
+    }
+  ],
+  "assessment": {
+    "outcome": "contradicted",
+    "summary": "Original hypothesis suggested a newly awarded contract could improve outlook, but later evidence states the contract was not awarded, negotiations ended without agreement, and no revenue is expected, directly contradicting the initial claim.",
+    "trace_hash": "746438ab6de4d3b7988fdfcf34230fa2bddca3ef5884ee84bb0d6c6bce3fabab",
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "provider": "Nebius Token Factory",
+    "at": "2026-10-15T02:27:12.916592+00:00",
+    "usage": {
+      "completion_tokens": 560,
+      "prompt_tokens": 595,
+      "total_tokens": 1155,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 461,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 595
+    },
+    "claims": [
+      {
+        "evidence_id": "b1fceb0902d10c052f71797532b82c3a30877a6043620a68f5f3a41118e5dfda",
+        "quote": "The previously reported contract was not awarded. Negotiations ended without an agreement. No revenue is expected from that negotiation."
+      }
+    ]
+  },
+  "diagnostics": {
+    "resources": {
+      "pid": 29948,
+      "cpu_seconds": 1.046875,
+      "rss_bytes": 31850496,
+      "peak_rss_bytes": 35598336
+    },
+    "newsUnique": 0,
+    "materialCases": 0,
+    "decisionBacklog": 0,
+    "rulesApplied": 0,
+    "recoveryAttempts": 0,
+    "averageCompletedJobMs": 0,
+    "sourceHealth": null,
+    "jobs": {},
+    "oldestPending": null,
+    "model": {
+      "attempts": 1,
+      "reserved_usd": 0.0050925,
+      "avg_model_ms": 3297.0,
+      "failures": 0
+    },
+    "heartbeat": {
+      "worker": null,
+      "monitor": null
+    }
+  },
+  "limitation": "This verifies a retrospective schema and grounded contradiction assessment, not an elapsed genuine investment recommendation."
+}

@@ -1,0 +1,219 @@
+{
+ "workload100x10fast": {
+  "events": 10,
+  "mock_model_delay_s": 0,
+  "inject_seconds": 0.04,
+  "total_seconds": 5.2,
+  "throughput_per_min": 115.9,
+  "queue_delay_p50_s": 1.12,
+  "queue_delay_max_s": 1.5,
+  "run_p50_s": 0.09,
+  "run_p95_s": 0.09,
+  "end_to_end_p50_s": 1.2,
+  "end_to_end_max_s": 1.6,
+  "statuses": {
+   "completed": 10
+  },
+  "worker_cpu_pct_max": 16.45,
+  "worker_cpu_pct_avg": 8.3,
+  "worker_mem_samples": [
+   "68.81MiB",
+   "68.81MiB"
+  ]
+ },
+ "api": {
+  "idle": [
+   {
+    "path": "/api/state",
+    "concurrency": 1,
+    "requests": 1064,
+    "rps": 53.2,
+    "p50_ms": 18.0,
+    "p95_ms": 24.1,
+    "p99_ms": 30.7,
+    "errors": 0
+   },
+   {
+    "path": "/api/state",
+    "concurrency": 10,
+    "requests": 1485,
+    "rps": 74.2,
+    "p50_ms": 132.2,
+    "p95_ms": 199.7,
+    "p99_ms": 226.4,
+    "errors": 0
+   },
+   {
+    "path": "/api/state",
+    "concurrency": 25,
+    "requests": 1434,
+    "rps": 71.7,
+    "p50_ms": 347.1,
+    "p95_ms": 463.3,
+    "p99_ms": 514.9,
+    "errors": 0
+   }
+  ],
+  "impact_idle": {
+   "path": "/api/impact?dataset=monitor&days=30",
+   "concurrency": 10,
+   "requests": 1733,
+   "rps": 115.5,
+   "p50_ms": 85.4,
+   "p95_ms": 126.6,
+   "p99_ms": 153.2,
+   "errors": 0
+  },
+  "during_long_investigations": [
+   {
+    "path": "/api/state",
+    "concurrency": 10,
+    "requests": 1544,
+    "rps": 77.2,
+    "p50_ms": 124.5,
+    "p95_ms": 199.4,
+    "p99_ms": 233.1,
+    "errors": 0
+   },
+   {
+    "path": "/api/state",
+    "concurrency": 25,
+    "requests": 1531,
+    "rps": 76.5,
+    "p50_ms": 325.8,
+    "p95_ms": 420.2,
+    "p99_ms": 511.6,
+    "errors": 0
+   }
+  ],
+  "static_index": {
+   "path": "/",
+   "concurrency": 10,
+   "requests": 7781,
+   "rps": 778.1,
+   "p50_ms": 11.8,
+   "p95_ms": 25.7,
+   "p99_ms": 34.7,
+   "errors": 0
+  },
+  "db_rows": {
+   "documents": "4802",
+   "audit": "9941",
+   "jobs": "380",
+   "evidence_versions": "1437",
+   "impact_cases": "1437"
+  },
+  "api_container": "0.03%|91.69MiB / 7.841GiB"
+ },
+ "workload100w10fast": {
+  "events": 10,
+  "mock_model_delay_s": 0,
+  "inject_seconds": 0.05,
+  "total_seconds": 13.3,
+  "throughput_per_min": 45.0,
+  "queue_delay_p50_s": 9.8,
+  "queue_delay_max_s": 10.2,
+  "run_p50_s": 0.09,
+  "run_p95_s": 0.1,
+  "end_to_end_p50_s": 9.9,
+  "end_to_end_max_s": 10.3,
+  "statuses": {
+   "completed": 10
+  },
+  "worker_cpu_pct_max": 8.52,
+  "worker_cpu_pct_avg": 2.8,
+  "worker_mem_samples": [
+   "64.12MiB",
+   "68.33MiB"
+  ]
+ },
+ "workload102w10": {
+  "events": 10,
+  "mock_model_delay_s": 2,
+  "inject_seconds": 0.04,
+  "total_seconds": 42.5,
+  "throughput_per_min": 14.1,
+  "queue_delay_p50_s": 19.3,
+  "queue_delay_max_s": 37.7,
+  "run_p50_s": 4.09,
+  "run_p95_s": 4.11,
+  "end_to_end_p50_s": 23.4,
+  "end_to_end_max_s": 41.8,
+  "statuses": {
+   "completed": 10
+  },
+  "worker_cpu_pct_max": 5.79,
+  "worker_cpu_pct_avg": 4.2,
+  "worker_mem_samples": [
+   "68.33MiB",
+   "68.53MiB"
+  ]
+ },
+ "workload1000x100fast": {
+  "events": 100,
+  "mock_model_delay_s": 0,
+  "inject_seconds": 0.47,
+  "total_seconds": 14.0,
+  "throughput_per_min": 428.7,
+  "queue_delay_p50_s": 5.05,
+  "queue_delay_max_s": 9.6,
+  "run_p50_s": 0.1,
+  "run_p95_s": 0.13,
+  "end_to_end_p50_s": 5.1,
+  "end_to_end_max_s": 9.7,
+  "statuses": {
+   "completed": 100
+  },
+  "worker_cpu_pct_max": 53.63,
+  "worker_cpu_pct_avg": 39.7,
+  "worker_mem_samples": [
+   "69.02MiB",
+   "70.77MiB"
+  ]
+ },
+ "workload1002x100": {
+  "events": 100,
+  "mock_model_delay_s": 2,
+  "inject_seconds": 0.42,
+  "total_seconds": 412.7,
+  "throughput_per_min": 14.5,
+  "queue_delay_p50_s": 203.95,
+  "queue_delay_max_s": 406.9,
+  "run_p50_s": 4.1,
+  "run_p95_s": 4.13,
+  "end_to_end_p50_s": 208.0,
+  "end_to_end_max_s": 411.0,
+  "statuses": {
+   "completed": 100
+  },
+  "worker_cpu_pct_max": 12.07,
+  "worker_cpu_pct_avg": 1.6,
+  "worker_mem_samples": [
+   "70.77MiB",
+   "72.5MiB"
+  ]
+ },
+ "c4x100": {
+  "events": 100,
+  "mock_model_delay_s": 2,
+  "inject_seconds": 0.38,
+  "total_seconds": 111.5,
+  "throughput_per_min": 53.8,
+  "queue_delay_p50_s": 52.53,
+  "queue_delay_max_s": 103.7,
+  "run_p50_s": 4.19,
+  "run_p95_s": 4.35,
+  "end_to_end_p50_s": 56.7,
+  "end_to_end_max_s": 107.8,
+  "statuses": {
+   "completed": 100
+  },
+  "worker_cpu_pct_max": 68.18,
+  "worker_cpu_pct_avg": 7.0,
+  "worker_mem_samples": [
+   "71.94MiB",
+   "87.38MiB"
+  ]
+ },
+ "_note": "Mocked inference; local container + native PostgreSQL 16 on one host; worker concurrency 1 unless key starts with c4 (4 slots). w100*/w100fast runs failed at injection (webhook rate limit 20/min) and were re-run as x*."
+}

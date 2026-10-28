@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-14T23:35:22.728654+00:00",
+  "tenant": "real-integration-2026-10-14T23:35:06.937967+00:00",
+  "first_event": "e0ab5b6a54bf7eada628a1e4",
+  "second_event": "f55e6e9aa40fcf50d6314aa6",
+  "first_mode": "Authentic captured model calls replayed",
+  "second_mode": "Fresh Nemotron Research and blind Challenge",
+  "correction_mode": "Fresh Nemotron inference; no fixed parser",
+  "provider": "Nebius Token Factory",
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "market_source": "Alpaca IEX \u00b7 preserved authorized download",
+  "evidence_ids": [
+    "d30b8d3504709a9c1efaaede6bbdb738281fea40136499a7d72e24e0632bdc16"
+  ],
+  "second_research": {
+    "claims": [
+      {
+        "evidence_id": "d30b8d3504709a9c1efaaede6bbdb738281fea40136499a7d72e24e0632bdc16",
+        "quote": "Valero Energy Corporation (NYSE: VLO) announced today that it will host a conference call on Thursday, October 22, 2026, at 10:00 a.m. ET to discuss its financial and operational results for the third quarter of 2026."
+      }
+    ],
+    "classification": "Opportunity",
+    "decision": "clear",
+    "material": true,
+    "summary": "Earnings call scheduled for Oct 22, 2026 confirmed; however, no financial results or forward guidance are available yet, leaving uncertainty about Q3 margins, demand trends, and risk factors."
+  },
+  "second_challenge": {
+    "decision": "clear",
+    "classification": "Opportunity",
+    "material": true,
+    "summary": "While the upcoming earnings call is confirmed, specific details on margins, demand, and risks are not yet available, so any research note would be preliminary and based on general expectations.",
+    "claims": [
+      {
+        "evidence_id": "d30b8d3504709a9c1efaaede6bbdb738281fea40136499a7d72e24e0632bdc16",
+        "quote": "Valero Energy Corporation (NYSE: VLO) announced today that it will host a conference call on Thursday, October 22, 2026, at 10:00 a.m. ET to discuss its financial and operational results for the third quarter of 2026."
+      }
+    ]
+  },
+  "correction_trace_hash": "b94a8295dff1ef95dcd5f91d94e67201970c22ac9133c53a6cb2d9c2a85a65de",
+  "second_research_request_hash": "2d9f0f1a32afcbaac2d29ededd160b78358c6743b4ead28f2e5ff63e39eb5515",
+  "second_challenge_request_hash": "5c58a4711603c7cf32b23c3e0da6e2c9630d237e7681782682317f56043d923b",
+  "rule_id": "664cd90f4e8c93d907195f48",
+  "rule_uses": 1,
+  "verified_action": {
+    "type": "prepare_note",
+    "id": "f55e6e9aa40fcf50d6314aa6",
+    "verified": true,
+    "hash": "473d2ffcda95d8e896390014b2306c88a8de5c4c0494b4826d023036a7371262"
+  },
+  "restart_readback": "PASS",
+  "audit": {
+    "records": 15,
+    "head": "d3a9590d33c82f8ddc0caa51ea25ce570a2f407b5a4b44b3fce3117564c996d1"
+  },
+  "result": "PASS",
+  "orders": 0
+}

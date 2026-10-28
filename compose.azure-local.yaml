@@ -1,0 +1,43 @@
+# Production-like local topology: PostgreSQL + API + separate worker (same image, two workloads).
+#   docker compose -f compose.azure-local.yaml up --build
+# Fresh inference stays off unless you provide NEBIUS_API_KEY in .env.production and set MARKETBELL_ALLOW_LIVE=1.
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: local-only-not-a-secret
+      POSTGRES_DB: marketbell
+    volumes: [pg-data:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U postgres"], interval: 5s, retries: 20 }
+  api:
+    build: .
+    depends_on: { db: { condition: service_healthy } }
+    ports: ["127.0.0.1:8080:8080"]
+    environment: &common
+      # development mode so plain http://localhost works; Azure uses staging/production (HTTPS-only).
+      MARKETBELL_ENV: development
+      MARKETBELL_ALLOW_LIVE: "0"
+      MARKETBELL_PUBLIC_ORIGIN: http://localhost:8080
+      MARKETBELL_BIND: 0.0.0.0
+      MARKETBELL_DATABASE_URL: postgresql://postgres:local-only-not-a-secret@db:5432/marketbell
+      MARKETBELL_TRUSTED_PROXY_HOPS: "0"
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  worker:
+    build: .
+    command: ["python", "-m", "backend.worker_main"]
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      <<: *common
+      MARKETBELL_ROLE: worker
+      MARKETBELL_WATCH: "1"
+    env_file: { path: .env.production, required: false }
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    stop_grace_period: 60s
+volumes:
+  pg-data:

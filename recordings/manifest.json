@@ -1,0 +1,12 @@
+{
+  "hashes": {
+    "psx": "61e9fa341658292d52cdccb10229d81c1939a0feb90859dede556301ae534f71",
+    "vlo": "f9b9a0b1a5146ee6a17364d2953e5625ad52c38307d76c6a11d0857d79d2b8a8",
+    "risk": "d12b861fede1a26bc68b345a70f6b4c4bf6fe7eae5b46866f026150bcf95144f",
+    "routine": "7277998abd7017787afab317896e1f36d59c94b26ab47ef3e2429d0b5c66b329",
+    "preference": "4bdaed78bd68e8319b50be128943a47b7cb085ebdafca0b1d96f0c9dd32d507b",
+    "challenge": "a93e47a32706d14f631077bda0d1c74bfcedc27e9840f973172e4a7fd824285d"
+  },
+  "status": "Authentic captured Nebius calls over real public evidence and preserved authorized Alpaca IEX bars.",
+  "market_data": "Preserved authorized Alpaca download; current session when captured, not a fresh brokerage API request."
+}

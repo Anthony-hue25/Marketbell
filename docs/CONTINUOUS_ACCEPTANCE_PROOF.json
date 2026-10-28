@@ -1,0 +1,63 @@
+{
+  "started": "2026-10-15T00:02:18.113908+00:00",
+  "completed": "2026-10-15T00:02:46.793393+00:00",
+  "result": "PASS",
+  "browser_closed_during_delivery": true,
+  "delivery": "Authenticated webhook from controlled source emitter; preserved real issuer announcement; no claim of naturally breaking news.",
+  "manual_product_button": false,
+  "new_completed_session_required": false,
+  "completed_session_before": "2026-10-14",
+  "completed_session_after": "2026-10-14",
+  "market_open": false,
+  "job": "a74b9c1c817e3b9bb1e773fb04318072",
+  "event": "c07028a6508f7ddaa2e4b824",
+  "status": "held",
+  "research": {
+    "claims": [
+      {
+        "evidence_id": "bd2cc48c382ec7199999778f90423dd66b5ae05e2e0bf8075fa15b558d5be955",
+        "quote": "Phillips 66 (NYSE: PSX) executive management will host a webcast at noon ET on Wednesday, Oct. 28, 2026, to discuss the company's third-quarter 2026 financial results, which will be released earlier that day."
+      },
+      {
+        "evidence_id": "687dbdff3b8f1809283bbb1033af2bc09f13e30780eb94e4e9341906bbf1a348",
+        "quote": "Reported second-quarter earnings of $3.8 billion or $9.55 per share; adjusted earnings of $3.8 billion or $9.41 per share"
+      }
+    ],
+    "classification": "Opportunity",
+    "decision": "clear",
+    "material": true,
+    "summary": "Preparing research note for PSX Q3 2026 earnings call (Oct. 28). Prior Q2 showed strong earnings ($3.8B) and refining metrics, but Q3 outlook uncertain due to seasonal factors and lack of forward guidance in announcement."
+  },
+  "challenge": {
+    "claims": [
+      {
+        "evidence_id": "bd2cc48c382ec7199999778f90423dd66b5ae05e2e0bf8075fa15b558d5be955",
+        "quote": "Phillips 66 (NYSE: PSX) executive management will host a webcast at noon ET on Wednesday, Oct. 28, 2026, to discuss the company's third-quarter 2026 financial results, which will be released earlier that day."
+      }
+    ],
+    "classification": "Routine",
+    "decision": "no_action",
+    "material": false,
+    "summary": "The evidence only shows a routine earnings announcement notice without any financial results, guidance updates, or substantive business information. Headlines are unusable per limitations, and historical data (E8) is outdated for Q3 analysis. No material new information is present to justify a research note."
+  },
+  "policy": {
+    "cash_available": true,
+    "completed_session_fresh": true,
+    "eligible_symbol": true,
+    "evidence_present": true,
+    "execution_disabled": true,
+    "position_limit": true,
+    "preparation_only": true,
+    "sector_limit": true
+  },
+  "provider": "Nebius Token Factory",
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "research_request_id": "chatcmpl-b1ae6541ba883125",
+  "challenge_request_id": "chatcmpl-9be8e1432f44be07",
+  "duplicate_delivery_additional_model_calls": 0,
+  "restart_readback": "PASS",
+  "audit": {
+    "records": 118,
+    "head": "d931634cd5d89dbbb54842c57803ab107ccf79c0a11fe58c524624d42dd975bb"
+  }
+}

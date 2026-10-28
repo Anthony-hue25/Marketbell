@@ -1,0 +1,230 @@
+{
+  "started": "2026-10-15T01:56:22.416027+00:00",
+  "browser_required": false,
+  "environment": "Isolated local real background-worker acceptance",
+  "results": [
+    {
+      "test": "Controlled event and mid-processing process restart",
+      "result": "PASS",
+      "source_label": "Controlled delivery of preserved issuer announcement",
+      "event": "97e79cdb66e911f3820889e2",
+      "status": "needs",
+      "job_attempts": 2,
+      "sessions_during_processing": 0,
+      "research_preserved": true,
+      "process_before": 1624,
+      "process_after": 28180,
+      "actual_process_identity_checked": true,
+      "outcomes": 1,
+      "stages": [
+        "CHALLENGED",
+        "DETECTED",
+        "INVESTIGATED",
+        "POLICY CHECKED",
+        "RESOLVED",
+        "TRIAGED"
+      ],
+      "traces": [
+        {
+          "stage": "RESEARCH",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider": "Nebius Token Factory",
+          "at": "2026-10-15T01:56:40.727128+00:00",
+          "duration_ms": 4469,
+          "usage": {
+            "completion_tokens": 957,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 759,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 8408,
+            "prompt_tokens": 8408,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0,
+              "created_cache_tokens": 0,
+              "multimodal_tokens": null
+            },
+            "total_tokens": 9365
+          },
+          "api_request_id": "chatcmpl-ab2e3c0daaed6513"
+        },
+        {
+          "stage": "CHALLENGE",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider": "Nebius Token Factory",
+          "at": "2026-10-15T01:56:52.528276+00:00",
+          "duration_ms": 3094,
+          "usage": {
+            "completion_tokens": 538,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 374,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 8419,
+            "prompt_tokens": 8419,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0,
+              "created_cache_tokens": 0,
+              "multimodal_tokens": null
+            },
+            "total_tokens": 8957
+          },
+          "api_request_id": "chatcmpl-ac91b3d8a8ffd464"
+        }
+      ],
+      "event_created": "2026-10-15T01:56:36.134558+00:00",
+      "resolved_at": "2026-10-15T01:56:52.617320+00:00",
+      "policy_duration_ms": 0.1281,
+      "resolution_wall_ms": 16482.762000000002
+    },
+    {
+      "test": "Authentic fetched RSS item through recurring detector",
+      "result": "PASS",
+      "source": {
+        "entity_match": true,
+        "entity_limitation": "Headline matching only; full article entity context is unavailable.",
+        "id": "cdc3c4cfe09eea580b2ab7262c0fbf6a0711186ae41ae32bf8e09d51c227d175",
+        "source": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNMWQwSi13U0dyYmR4SThpYWV6Wmk5dnUtN3NLZkkwaEN6c0hvald6Y0Z4OG4zUEs2ekMtaFdfY29RMnNEQVBxMHhaQjRBRlh6NXpMR0h3RFp2a0R3UmdGVi1VMmU0YzZFSnZYV2lVS0FXVlBmNmF3U2VHZy1mNU1RWVpILU00dWdqaUlaNWFSWHM5S1R2?oc=5",
+        "published_at": "2026-10-13T16:15:46+00:00",
+        "retrieved_at": "2026-10-15T01:56:53.380398+00:00",
+        "text": "Phillips 66 (PSX) Stock May Be 42% Undervalued As Strike Risks Loom - Yahoo Finance",
+        "type": "headline_only",
+        "limitation": "Headline from RSS; full article not retrieved or independently verified."
+      },
+      "provider_connectivity": "HTTP retrieval succeeded; redistribution license is not established by connectivity",
+      "event": "45d81793caf0427b4ce252f9",
+      "status": "needs",
+      "traces": [
+        {
+          "stage": "RESEARCH",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider": "Nebius Token Factory",
+          "at": "2026-10-15T01:57:01.141241+00:00",
+          "duration_ms": 5125,
+          "usage": {
+            "completion_tokens": 1048,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 923,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 7643,
+            "prompt_tokens": 7643,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0,
+              "created_cache_tokens": 0,
+              "multimodal_tokens": null
+            },
+            "total_tokens": 8691
+          },
+          "api_request_id": "chatcmpl-9fca5b1efe90c2df"
+        },
+        {
+          "stage": "CHALLENGE",
+          "model": "nvidia/nemotron-3-super-120b-a12b",
+          "provider": "Nebius Token Factory",
+          "at": "2026-10-15T01:57:05.624646+00:00",
+          "duration_ms": 4375,
+          "usage": {
+            "completion_tokens": 799,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 667,
+              "rejected_prediction_tokens": null
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 7654,
+            "prompt_tokens": 7654,
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": 0,
+              "created_cache_tokens": 0,
+              "multimodal_tokens": null
+            },
+            "total_tokens": 8453
+          },
+          "api_request_id": "chatcmpl-98bb95a39a6f4438"
+        }
+      ],
+      "event_created": "2026-10-15T01:44:29.666583+00:00",
+      "resolved_at": "2026-10-15T01:44:40.644523+00:00",
+      "policy_duration_ms": 0.0895,
+      "resolution_wall_ms": 10977.94
+    }
+  ],
+  "result": "PASS",
+  "displayed_via_normal_state_api": true,
+  "completed": "2026-10-15T01:57:06.355116+00:00",
+  "market_open": false,
+  "new_market_close_required": false,
+  "diagnostics": {
+    "resources": {
+      "pid": 22476,
+      "cpu_seconds": 9.140625,
+      "rss_bytes": 59199488,
+      "peak_rss_bytes": 70418432
+    },
+    "newsUnique": 1,
+    "materialCases": 2,
+    "decisionBacklog": 2,
+    "rulesApplied": 0,
+    "recoveryAttempts": 1,
+    "averageCompletedJobMs": 10296.986997127533,
+    "sourceHealth": {
+      "active": true,
+      "budgetDeferred": false,
+      "catchup": true,
+      "catchupCoverage": "Bounded source lookback: 7 days, at most 5 returned headlines per security; complete missed-event coverage is not guaranteed.",
+      "checkedAt": "2026-10-15T01:56:53.507173+00:00",
+      "coverageLimitations": "Search headlines only; query matching may include unrelated or multi-company stories. Empty polls do not prove complete coverage.",
+      "deferredNotices": 0,
+      "intervalSeconds": 300,
+      "intradayQuotes": false,
+      "lastReceivedAt": "2026-10-15T01:56:53.507173+00:00",
+      "lastSuccessAt": "2026-10-15T01:56:53.507173+00:00",
+      "newInvestigations": 1,
+      "newUniqueItems": 1,
+      "receivedItems": 1,
+      "source": "Public news headlines; daily price baseline",
+      "sourceErrors": [],
+      "status": "Watching for new information",
+      "symbols": 8
+    },
+    "jobs": {
+      "completed": 2
+    },
+    "oldestPending": null,
+    "model": {
+      "attempts": 4,
+      "reserved_usd": 0.0427338,
+      "avg_model_ms": 4230.5,
+      "failures": 0
+    },
+    "heartbeat": {
+      "worker": {
+        "at": "2026-10-15T01:57:06.053381+00:00",
+        "status": "running"
+      },
+      "monitor": {
+        "at": "2026-10-15T01:56:44.134426+00:00",
+        "status": "running"
+      }
+    }
+  },
+  "audit": {
+    "records": 17,
+    "head": "ce2ea624f96252e922bd8be7a31a3f447199553f9bb9ce4a2f1abd44f1cd199f"
+  }
+}

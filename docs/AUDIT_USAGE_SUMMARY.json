@@ -1,0 +1,7 @@
+{
+  "input_tokens": 40169,
+  "completion_tokens": 10847,
+  "estimated_usd": 0.021813,
+  "successful_returned_calls": 20,
+  "note": "Bounded audit workload only; interrupted in-flight requests and other historical/local monitoring calls are excluded. Estimates are assumptions, not a Nebius invoice."
+}

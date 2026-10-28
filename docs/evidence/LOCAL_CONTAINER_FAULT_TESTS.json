@@ -1,0 +1,205 @@
+{
+ "T1_browser_closed_news_to_decision": {
+  "publish_to_final_seconds": 55.1,
+  "monitor_event_status": "needs",
+  "visible_on_return": true,
+  "worker_healthy_flag": true,
+  "watch_active": true
+ },
+ "T7_duplicate_articles": {
+  "watch_jobs": "1",
+  "unique_news": "1",
+  "screened": "1"
+ },
+ "T7_duplicate_webhook": {
+  "first": [
+   200,
+   {
+    "job": "3231eae063260e2031a3238d6d098736",
+    "status": "accepted_for_investigation"
+   }
+  ],
+  "second": [
+   200,
+   {
+    "job": "3231eae063260e2031a3238d6d098736",
+    "status": "duplicate_ignored"
+   }
+  ],
+  "revised": [
+   200,
+   {
+    "job": "233f3deb6938089475767c22de016d47",
+    "status": "revision_accepted_for_investigation"
+   }
+  ]
+ },
+ "T2_worker_sigkill_mid_investigation": {
+  "state_after_kill": "running|1|vm-1-014265",
+  "final": "completed|2|",
+  "recovery_seconds_after_kill": 96.1,
+  "events_for_case": "1",
+  "model_calls_for_case": "RESEARCH:reserved\nRESEARCH:success\nCHALLENGE:success",
+  "recovered_log": [
+   {
+    "at": "2026-10-19T00:43:03.963399+00:00",
+    "service": "marketbell",
+    "role": "worker",
+    "event": "worker.recovered",
+    "requeued": 1,
+    "retry_limit": 0
+   }
+  ]
+ },
+ "T3_graceful_sigterm": {
+  "docker_stop_seconds": 5.3,
+  "job_after_stop": "queued|0|-",
+  "leases_after_stop": "worker|vm-1-827fda|f\nmonitor|vm-1-827fda|f",
+  "stopped_event": [
+   {
+    "at": "2026-10-19T00:44:24.557794+00:00",
+    "service": "marketbell",
+    "role": "worker",
+    "event": "worker.stopped",
+    "requeued_job": "ccd89c39f0a07d0fe6f4041df0c43f45",
+    "owner": "vm-1-827fda"
+   }
+  ],
+  "final": "completed|1",
+  "completion_seconds_after_restart": 53.3
+ },
+ "T4_nebius_http_503": {
+  "after_injected_failures": "failed|1|NEBIUS_HTTP_503",
+  "event_state_during_outage": "failed|NEBIUS_HTTP_503",
+  "final": "completed|2",
+  "seconds_to_recovery": 31.8,
+  "event_final": "blocked",
+  "audit_failure_recorded": "1"
+ },
+ "T5_news_source_outage": {
+  "during": {
+   "active": false,
+   "status": "Sources unavailable; retrying",
+   "lastSuccessAt": "2026-10-19T00:45:27.067958+00:00",
+   "checkedAt": "2026-10-19T00:46:27.102125+00:00",
+   "sourceErrors": 8
+  },
+  "after_recovery": {
+   "active": true,
+   "status": "Watching for new information"
+  },
+  "item_published_during_outage_investigated": true,
+  "seconds_after_recovery": 6.2,
+  "outage_reports": "1",
+  "personal_copy_for_returning_user": "2"
+ },
+ "T6_database_outage": {
+  "outage_seconds": 45.2,
+  "api_healthz_during": [
+   503,
+   {
+    "error": "DATABASE_UNAVAILABLE"
+   }
+  ],
+  "api_state_during": [
+   503,
+   {
+    "error": "DATABASE_UNAVAILABLE"
+   }
+  ],
+  "webhook_during": [
+   503,
+   {
+    "error": "DATABASE_UNAVAILABLE"
+   }
+  ],
+  "worker_health_during": [
+   503,
+   {
+    "alive": true,
+    "database": false,
+    "loops": true,
+    "roles": {
+     "worker": true,
+     "monitor": true
+    },
+    "standby": false,
+    "current_job": false
+   }
+  ],
+  "containers_during": "mb-worker Up 4 minutes (healthy)\nmb-api Up 10 minutes (healthy)",
+  "api_recovered_seconds_after_db_start": 0.0,
+  "worker_recovered": true,
+  "webhook_after": [
+   200,
+   {
+    "job": "2e54ac11edac81687fcbbac01f185c83",
+    "status": "accepted_for_investigation"
+   }
+  ],
+  "job_after": "completed",
+  "audit_before": "110",
+  "audit_chain": "see verify"
+ },
+ "T8_multiple_workers_and_failover": {
+  "worker1": {
+   "worker": true,
+   "monitor": true
+  },
+  "worker2": {
+   "worker": false,
+   "monitor": false
+  },
+  "killed": "mb-worker",
+  "all_8_final": true,
+  "seconds_after_kill": 79.6,
+  "model_calls_for_8_cases": 17,
+  "duplicate_successful_stage_calls": "0",
+  "statuses": "completed|8",
+  "events": "8"
+ },
+ "T9_backlog_after_downtime": {
+  "webhook_backlog": 20,
+  "all_webhook_final": true,
+  "drain_seconds": 45.9,
+  "throughput_cases_per_min": 26.1,
+  "news_items_published_during_downtime_investigated": true,
+  "total_seconds_incl_news": 124.9,
+  "catchup_flag_seen": true,
+  "statuses": "completed|38"
+ },
+ "T10_delayed_and_stale_articles": {
+  "three_day_old_newly_indexed_item_investigated": true,
+  "eight_day_old_item_screened": "0",
+  "eight_day_old_item_jobs": "0",
+  "delayed_item_evidence_times": "2026-10-16T01:13:16+00:00 / retrieved 2026-10-19T01:13:16.391951+00:00"
+ },
+ "T13_logical_backup_restore": {
+  "pg_restore_rc": 0,
+  "restore_stderr": "",
+  "restore_seconds": 0.7,
+  "verify_restored": {
+   "records": 16053,
+   "head": "6d31c76af11acfd115ff9b48fcd8a93cf17b50ad8c391923a1991c4b8ef26146"
+  },
+  "verify_seconds": 1.2,
+  "source_audit_rows": "16053",
+  "source_head_matches": true
+ },
+ "T14_scheduled_job_mode": {
+  "container_wall_seconds": 21.3,
+  "run": [
+   {
+    "at": "2026-10-19T01:35:09.201164+00:00",
+    "service": "marketbell",
+    "role": "worker",
+    "event": "worker.run_once",
+    "status": "ran",
+    "processed": 3,
+    "seconds": 17.5
+   }
+  ],
+  "job_statuses": "completed|3",
+  "leases_after": "worker|f\nmonitor|f"
+ }
+}

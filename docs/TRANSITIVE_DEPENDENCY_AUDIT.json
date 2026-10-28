@@ -1,0 +1,149 @@
+{
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "package": {
+        "name": "certifi",
+        "ecosystem": "PyPI"
+      },
+      "version": "2026.7.22",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "charset-normalizer",
+        "ecosystem": "PyPI"
+      },
+      "version": "3.5.2",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "exchange_calendars",
+        "ecosystem": "PyPI"
+      },
+      "version": "4.11.1",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "idna",
+        "ecosystem": "PyPI"
+      },
+      "version": "3.20",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "korean_lunar_calendar",
+        "ecosystem": "PyPI"
+      },
+      "version": "0.4.0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "numpy",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.2.6",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "pandas",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.2.3",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "pyluach",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.3.0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "python-dateutil",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.9.0.post0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "python-dotenv",
+        "ecosystem": "PyPI"
+      },
+      "version": "1.2.4",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "pytz",
+        "ecosystem": "PyPI"
+      },
+      "version": "2026.5",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "requests",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.34.2",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "six",
+        "ecosystem": "PyPI"
+      },
+      "version": "1.17.0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "toolz",
+        "ecosystem": "PyPI"
+      },
+      "version": "1.2.0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "tzdata",
+        "ecosystem": "PyPI"
+      },
+      "version": "2026.5",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "urllib3",
+        "ecosystem": "PyPI"
+      },
+      "version": "2.8.0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "gunicorn",
+        "ecosystem": "PyPI"
+      },
+      "version": "23.0.0",
+      "advisories": []
+    },
+    {
+      "package": {
+        "name": "packaging",
+        "ecosystem": "PyPI"
+      },
+      "version": "26.3",
+      "advisories": []
+    }
+  ]
+}

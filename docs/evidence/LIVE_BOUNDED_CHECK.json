@@ -1,0 +1,213 @@
+{
+ "at": "2026-10-20T00:33:58.688966+00:00",
+ "run": "live-bounded-20261020T003356-85a3",
+ "authentic_endpoints": true,
+ "news_endpoint": "https://news.google.com/rss/search",
+ "model_endpoint": "https://api.tokenfactory.us-central1.nebius.com/v1/chat/completions",
+ "enforced_limits": {
+  "MARKETBELL_DAILY_USD": "0.05",
+  "MARKETBELL_MONTHLY_USD": "0.05",
+  "MARKETBELL_DAILY_CALLS": "4",
+  "MARKETBELL_EVENT_CALLS": "4",
+  "MARKETBELL_INTERACTIVE_DAILY_CALLS": "0",
+  "MARKETBELL_INPUT_USD_M": "0.3",
+  "MARKETBELL_OUTPUT_USD_M": "0.9",
+  "MARKETBELL_ALLOW_LIVE": "1",
+  "MARKETBELL_ENV": "development",
+  "MARKETBELL_CAPTURE_PUBLIC_REQUESTS": "1"
+ },
+ "workspace": "C:\\Users\\antho\\marketbell\\work\\audit\\live-bounded-20261020T003356-85a3\\marketbell.sqlite3",
+ "news": {
+  "NVDA": {
+   "ok": true,
+   "items": 5,
+   "entity_matched": 5,
+   "publishers": [
+    "24/7 Wall St.",
+    "CNBC",
+    "The Motley Fool",
+    "Trefis",
+    "Yahoo Finance"
+   ],
+   "published_at_range": [
+    "2026-10-15T00:42:00+00:00",
+    "2026-10-19T16:00:00+00:00"
+   ],
+   "ms": 406
+  },
+  "JPM": {
+   "ok": true,
+   "items": 5,
+   "entity_matched": 4,
+   "publishers": [
+    "Beinsure",
+    "Business Wire",
+    "Reuters",
+    "The Motley Fool",
+    "Yahoo Finance"
+   ],
+   "published_at_range": [
+    "2026-10-13T14:17:07+00:00",
+    "2026-10-18T08:15:00+00:00"
+   ],
+   "ms": 359
+  },
+  "PSX": {
+   "ok": true,
+   "items": 5,
+   "entity_matched": 5,
+   "publishers": [
+    "24/7 Wall St.",
+    "Seeking Alpha",
+    "StockInvest.us",
+    "TradingKey",
+    "Yahoo! Finance Canada"
+   ],
+   "published_at_range": [
+    "2026-10-13T04:10:05+00:00",
+    "2026-10-19T14:15:00+00:00"
+   ],
+   "ms": 344
+  },
+  "VLO": {
+   "ok": true,
+   "items": 5,
+   "entity_matched": 5,
+   "publishers": [
+    "Barchart.com",
+    "Quiver Quantitative",
+    "StockInvest.us",
+    "The Motley Fool",
+    "Yahoo! Finance Canada"
+   ],
+   "published_at_range": [
+    "2026-10-14T01:12:00+00:00",
+    "2026-10-17T11:40:12+00:00"
+   ],
+   "ms": 328
+  }
+ },
+ "investigation": {
+  "symbol": "NVDA",
+  "headline": "Nvidia Stock Could Be Headed for a Significant Revaluation - 24/7 Wall St.",
+  "publisher": "24/7 Wall St.",
+  "discovered_via": "GOOGLE_NEWS_RSS",
+  "published_at": "2026-10-19T16:00:00+00:00",
+  "retrieved_at": "2026-10-20T00:33:59.091696+00:00",
+  "status": "blocked",
+  "kind": "Opportunity",
+  "summary": "Your portfolio policy prevented preparation: completed session fresh, position limit.",
+  "research": {
+   "decision": "hold",
+   "classification": "Opportunity",
+   "material": true
+  },
+  "challenge": {
+   "decision": "hold",
+   "classification": "Opportunity",
+   "material": false
+  },
+  "policy": {
+   "eligible_symbol": true,
+   "completed_session_fresh": false,
+   "position_limit": false,
+   "sector_limit": true,
+   "cash_available": true,
+   "evidence_present": true,
+   "preparation_only": true,
+   "execution_disabled": true
+  },
+  "seconds_total": 9.8,
+  "models": [
+   "nvidia/nemotron-3-super-120b-a12b"
+  ],
+  "provider": "Nebius Token Factory",
+  "usage": {
+   "research": {
+    "completion_tokens": 757,
+    "completion_tokens_details": {
+     "accepted_prediction_tokens": null,
+     "audio_tokens": null,
+     "reasoning_tokens": 635,
+     "rejected_prediction_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1003,
+    "prompt_tokens": 1003,
+    "prompt_tokens_details": {
+     "audio_tokens": null,
+     "cached_tokens": 0,
+     "created_cache_tokens": 0,
+     "multimodal_tokens": null
+    },
+    "total_tokens": 1760
+   },
+   "challenge": {
+    "completion_tokens": 676,
+    "prompt_tokens": 1014,
+    "total_tokens": 1690,
+    "completion_tokens_details": {
+     "accepted_prediction_tokens": null,
+     "audio_tokens": null,
+     "reasoning_tokens": 570,
+     "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": {
+     "audio_tokens": null,
+     "cached_tokens": 0,
+     "created_cache_tokens": 0,
+     "multimodal_tokens": null
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1014
+   }
+  },
+  "durations_ms": {
+   "research": 4094,
+   "challenge": 4406
+  },
+  "attempts": {
+   "research": 1,
+   "challenge": 1
+  },
+  "api_request_ids_present": true,
+  "challenge_request_captured": true,
+  "challenge_blind": true
+ },
+ "checks": {
+  "news_connectivity": true,
+  "persisted_after_reopen": true,
+  "journal_verified": {
+   "records": 8,
+   "head": "ea7e70bb41ba0c8a747a48d22a235ab4f6b6a06c25f2d5661e40514faa2d6ae3"
+  },
+  "ui_state_lists_case": true,
+  "ui_state_hides_raw_transcripts": true,
+  "challenge_blind": true,
+  "real_research_and_challenge": true,
+  "spend_within_ceiling": true
+ },
+ "model_calls": {
+  "attempts": 2,
+  "succeeded": 2,
+  "per_call": [
+   {
+    "stage": "RESEARCH",
+    "status": "success",
+    "duration_ms": 4078,
+    "error": null
+   },
+   {
+    "stage": "CHALLENGE",
+    "status": "success",
+    "duration_ms": 4359,
+    "error": null
+   }
+  ],
+  "reserved_usd": 0.010446,
+  "usage_based_usd_at_list_rates": 0.001895,
+  "ceiling_usd": 0.05
+ },
+ "view_in_browser": "set MARKETBELL_DATA_DIR=C:\\Users\\antho\\marketbell\\work\\audit\\live-bounded-20261020T003356-85a3 && set MARKETBELL_WATCH=0 && set MARKETBELL_SCHEDULER=0 && npm run dev   (open http://127.0.0.1:4318, Today > Autonomous)",
+ "passed": true
+}

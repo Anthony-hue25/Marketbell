@@ -1,0 +1,109 @@
+{
+  "at": "2026-10-14T23:46:10.645064+00:00",
+  "jobs": [
+    {
+      "id": "6c39419e59959968ed34463abe5a3b20",
+      "kind": "autonomous",
+      "status": "completed",
+      "attempts": 1,
+      "created": "2026-10-14T23:42:58.355244+00:00",
+      "updated": "2026-10-14T23:43:06.485143+00:00",
+      "error": null
+    },
+    {
+      "id": "1a3f9416737e8aa6ab62f7bcb2b09737",
+      "kind": "autonomous",
+      "status": "completed_with_errors",
+      "attempts": 3,
+      "created": "2026-10-14T23:34:01.725591+00:00",
+      "updated": "2026-10-14T23:40:41.703313+00:00",
+      "error": "SOME_CASES_UNRESOLVED"
+    }
+  ],
+  "events": [
+    {
+      "id": "2cbf7843b48a60f20afeeed5",
+      "symbol": "VLO",
+      "session": "2026-10-14",
+      "source": "Alpaca IEX \u00b7 preserved authorized download",
+      "status": "needs",
+      "policy": {
+        "cash_available": true,
+        "completed_session_fresh": true,
+        "eligible_symbol": true,
+        "evidence_present": true,
+        "execution_disabled": true,
+        "position_limit": true,
+        "preparation_only": true,
+        "sector_limit": true
+      },
+      "error": null,
+      "research_request": "chatcmpl-b9dd544953298a63",
+      "challenge_request": "chatcmpl-8e618d6f1d9fbb57"
+    },
+    {
+      "id": "e0a03084d2855c6e9e5a29a0",
+      "symbol": "JPM",
+      "session": "2026-10-14",
+      "source": "Alpaca IEX \u00b7 preserved authorized download",
+      "status": "held",
+      "policy": {
+        "cash_available": true,
+        "completed_session_fresh": true,
+        "eligible_symbol": true,
+        "evidence_present": true,
+        "execution_disabled": true,
+        "position_limit": true,
+        "preparation_only": true,
+        "sector_limit": true
+      },
+      "error": null,
+      "research_request": "chatcmpl-8863e9a2c0c8ba0a",
+      "challenge_request": "chatcmpl-a01b9dae437dbdf5"
+    },
+    {
+      "id": "19ecd3e719f0872157673ba4",
+      "symbol": "PSX",
+      "session": "2026-10-14",
+      "source": "Alpaca IEX \u00b7 preserved authorized download",
+      "status": "held",
+      "policy": {
+        "cash_available": true,
+        "completed_session_fresh": true,
+        "eligible_symbol": true,
+        "evidence_present": true,
+        "execution_disabled": true,
+        "position_limit": true,
+        "preparation_only": true,
+        "sector_limit": true
+      },
+      "error": null,
+      "research_request": "chatcmpl-b026ce4924ff878e",
+      "challenge_request": "chatcmpl-883fb4e12bf3d692"
+    },
+    {
+      "id": "8f810cff0c7428ad23ac5e64",
+      "symbol": "NVDA",
+      "session": "2026-10-14",
+      "source": "Alpaca IEX \u00b7 preserved authorized download",
+      "status": "blocked",
+      "policy": {
+        "cash_available": true,
+        "completed_session_fresh": true,
+        "eligible_symbol": true,
+        "evidence_present": true,
+        "execution_disabled": true,
+        "position_limit": false,
+        "preparation_only": true,
+        "sector_limit": true
+      },
+      "error": null,
+      "research_request": "chatcmpl-87344e64b3c9d46e",
+      "challenge_request": "chatcmpl-93e35ea2595f3bda"
+    }
+  ],
+  "audit": {
+    "records": 103,
+    "head": "8a2f2baa9d7887a81556c80fc8bf96e04edfe1807b629a4b1145b6714553d2bd"
+  }
+}

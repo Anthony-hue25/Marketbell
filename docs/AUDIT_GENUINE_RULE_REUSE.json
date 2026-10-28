@@ -1,0 +1,187 @@
+{
+  "at": "2026-10-15T03:33:26.499143+00:00",
+  "result": "PASS",
+  "scope": "Real background research and verified non-trading note under explicitly approved authority in an isolated user-entered demo portfolio. No brokerage ownership or trade is claimed.",
+  "security": "CVX",
+  "event": "d14c6f647113cfcfb4f0dbbc",
+  "trigger": "Continuous watch received previously unseen information (source published 2026-10-14T15:15:00+00:00): Chevron vs. ExxonMobil: Which Energy Stock Is a Better Buy in 2026? - The Motley Fool. Price context is the last completed session (2026-10-14), not an intraday quote.",
+  "created": "2026-10-15T03:21:12.669673+00:00",
+  "resolved_at": "2026-10-15T03:21:12.957658+00:00",
+  "manual_event_button": false,
+  "rule_approved_before_event": true,
+  "approved_rule": {
+    "id": "9cb2b0c30c62580e670b72ef",
+    "scope": "opportunity_note",
+    "sector": "Energy",
+    "max_position_pct": 3,
+    "max_sector_pct": 20,
+    "effect": "allow",
+    "approved_at": "2026-10-15T02:20:11.476657+00:00",
+    "expires": "2026-11-14T02:07:58.806452+00:00",
+    "version": 1
+  },
+  "research": {
+    "claims": [
+      {
+        "evidence_id": "2b097d92ea21c105b9c47518e976dd1c7fd9385f2f19065f5a70f1857668ca5f",
+        "quote": "\"close\": 222.09"
+      },
+      {
+        "evidence_id": "63c6d326ae1ac9b55f528f42c7c9489df0eb75838eeab1681a52737dfa50197e",
+        "quote": "Chevron (CVX) Stock Forecast and Price Target 2026"
+      },
+      {
+        "evidence_id": "74b76a0e3b85da8ec523c9ec0772a478500b4470d3817298554d6bb158cb21ce",
+        "quote": "Chevron (CVX) Is Cleaning House Before the Earnings Peak Fades"
+      },
+      {
+        "evidence_id": "a426da0e4962ac413b24477d8bb417819f685c2122f0a30af173c4b4fb90c00c",
+        "quote": "Why Is Chevron Stock Surging on Thursday?"
+      },
+      {
+        "evidence_id": "a81e4aea5606a644766b21f2c3ac2c24b10daef9e3c01c2bd4be24e2b9124399",
+        "quote": "CVX Stock Rises Overnight: Chevron Says It Has Discovered Oil, Gas Condensate Offshore In Angola"
+      },
+      {
+        "evidence_id": "097ee2923ffef2c688734fc953272d012e386df2e867bfb15c6bbd3d45dd7375",
+        "quote": "Chevron vs. ExxonMobil: Which Energy Stock Is a Better Buy in 2026?"
+      }
+    ],
+    "classification": "Opportunity",
+    "decision": "clear",
+    "material": true,
+    "summary": "The trigger is a new Motley Fool headline comparing CVX and XOM as a potential 2026 buy, supported by recent CVX price gains and other news headlines. However, full article content is unavailable, leaving uncertainty about the analysis depth and any risks, so a cautious research note can be prepared but conclusions remain provisional."
+  },
+  "challenge": {
+    "claims": [
+      {
+        "evidence_id": "2b097d92ea21c105b9c47518e976dd1c7fd9385f2f19065f5a70f1857668ca5f",
+        "quote": "\"close\": 222.09"
+      },
+      {
+        "evidence_id": "097ee2923ffef2c688734fc953272d012e386df2e867bfb15c6bbd3d45dd7375",
+        "quote": "Chevron vs. ExxonMobil: Which Energy Stock Is a Better Buy in 2026? - The Motley Fool"
+      }
+    ],
+    "classification": "Opportunity",
+    "decision": "clear",
+    "material": true,
+    "summary": "CVX shows recent price gains with a close of $222.09 on 2026-10-14, while a Motley Fool headline suggests a comparative analysis of CVX vs XOM for 2026; further details needed to assess relative value."
+  },
+  "policy": {
+    "cash_available": true,
+    "completed_session_fresh": true,
+    "eligible_symbol": true,
+    "evidence_present": true,
+    "execution_disabled": true,
+    "mandate_eligible": true,
+    "position_limit": true,
+    "preparation_only": true,
+    "sector_limit": true
+  },
+  "shared_public_analysis": true,
+  "note_hash": "f2795ddb6f83b65aaa49d8ba288ddb0bd49434071369d8531f9d098d913f0a98",
+  "readback_verified": true,
+  "traces": [
+    {
+      "stage": "RESEARCH",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "provider": "Nebius Token Factory",
+      "at": "2026-10-15T03:21:05.704912+00:00",
+      "requested_at": "2026-10-15T03:20:59.537857+00:00",
+      "duration_ms": 6171,
+      "api_request_id": "chatcmpl-a971300ac4b181ed",
+      "usage": {
+        "completion_tokens": 1201,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 908,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4695,
+        "prompt_tokens": 4695,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": null
+        },
+        "total_tokens": 5896
+      }
+    },
+    {
+      "stage": "CHALLENGE",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "provider": "Nebius Token Factory",
+      "at": "2026-10-15T03:21:12.247439+00:00",
+      "requested_at": "2026-10-15T03:21:05.827535+00:00",
+      "duration_ms": 6422,
+      "api_request_id": "chatcmpl-9c65c0a82095a29f",
+      "usage": {
+        "completion_tokens": 1098,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 936,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4706,
+        "prompt_tokens": 4706,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": null
+        },
+        "total_tokens": 5804
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "2b097d92ea21c105b9c47518e976dd1c7fd9385f2f19065f5a70f1857668ca5f",
+      "source": "Alpaca IEX \u00b7 preserved authorized download",
+      "type": "daily_market_data",
+      "published_at": "2026-10-14T20:00:00+00:00",
+      "retrieved_at": "2026-10-14T20:53:57.807628+00:00"
+    },
+    {
+      "id": "63c6d326ae1ac9b55f528f42c7c9489df0eb75838eeab1681a52737dfa50197e",
+      "source": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5WVE9oaHlqVldicWk4V1dTTzR0LWVEZy1wblVPbjJ6OGNTSTNEWVhGVnh6eGZDNVZSdEhCLTlwSmtlM3h1NnBXbnZsN2pYWTBhcGNHYVZ2bWlrbWhEVkVhYk93?oc=5",
+      "type": "headline_only",
+      "published_at": "2026-10-12T07:00:00+00:00",
+      "retrieved_at": "2026-10-15T03:20:59.337883+00:00"
+    },
+    {
+      "id": "74b76a0e3b85da8ec523c9ec0772a478500b4470d3817298554d6bb158cb21ce",
+      "source": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZFYtWmZqS210Z2hVWlZsejgyTGthVnhUbzFYRUxQNjV4ZUgtdTRlS0NRSHZpbHV4YW9TeFFneTBvRkUtNGtVcnVFVFQ4bV8zUXlHSzhnckhyWTNCRDhfMW5BbFVNWjBJbTdJQzNOYi0zUWJ3UHNLUEJpbVc4OTVTbDRFUTVKLWtvdXR5U3hsVWhraWZzQVpF?oc=5",
+      "type": "headline_only",
+      "published_at": "2026-10-13T12:18:19+00:00",
+      "retrieved_at": "2026-10-15T03:20:59.337883+00:00"
+    },
+    {
+      "id": "a426da0e4962ac413b24477d8bb417819f685c2122f0a30af173c4b4fb90c00c",
+      "source": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPOHRIdUY0UnJoUFFISnNfYXExSFNRekVteVI3SHQxMC1IUGx3dUs1RGpQVXc3dWthM0ZCdWMyRUtScmYzQVdsc0hUOWF0Q2lKZllfRWdQbHp6ZkRqdmpaa1F0czB3SlBJeWZ1NE1aMXYwWWExdjI1OWVPVjk3UllIUG12aUpBdWZDT3F6OWw5bzJWNlhPdzA5NTQ5TXVfbXl4cHhN?oc=5",
+      "type": "headline_only",
+      "published_at": "2026-10-08T18:33:04+00:00",
+      "retrieved_at": "2026-10-15T03:20:59.337883+00:00"
+    },
+    {
+      "id": "a81e4aea5606a644766b21f2c3ac2c24b10daef9e3c01c2bd4be24e2b9124399",
+      "source": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPRWZjWWVfRW5fc040VUVwTG5vZGlTTUNaVjQzWHNWZ2JYSThPbVUyNU84ZTZFbjhtWXFNV253eDRZMXh3N09aN1R1Mlc3R0tMaXBRSE41bXlvZXc0RDJ3ZEJhUzlyQ1R5U2FRLXhobEJWdjEwc0JuMVMwanJYRll0VzdadWFBTE92cVhGTU9lNjFzUXJYc3U0ZE91dzZYZ0d1aUlIUkF5cU92TWUzUHB4Y0loa21neC1XX0tyR3hUUXRhM1FkMERkU1pBN3J3VnBPX0s5UW45Y1J6VUY4UzFCYlJjal9aeUxpaUJsYnF2Zw?oc=5",
+      "type": "headline_only",
+      "published_at": "2026-10-11T22:41:07+00:00",
+      "retrieved_at": "2026-10-15T03:20:59.337883+00:00"
+    },
+    {
+      "id": "097ee2923ffef2c688734fc953272d012e386df2e867bfb15c6bbd3d45dd7375",
+      "source": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcGs3REhoWU5tV2FYdWJEMjBCT3lEZ0lOTVJlSERZM2kyX0JUcFRGeWhGU1U2YVpmSVJtT3AzRXdtUUV2cXlUR3psR1RVMFY2WWg0LXBJR2xjVXFpTDF6RHZiLVNHWnRzS2R1NF9UNS1Cd3RjVzNXMlRVc1dkcjdFbHlpTlZaUGx2NVI3WVJZMnN5Slo1cEtJR1RFcXFBd2pJQnFkc2hBLUhiejF0V3k1NDNNc1J4UUdH?oc=5",
+      "type": "headline_only",
+      "published_at": "2026-10-14T15:15:00+00:00",
+      "retrieved_at": "2026-10-15T01:43:17.379898+00:00"
+    }
+  ]
+}

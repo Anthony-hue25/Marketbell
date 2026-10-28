@@ -1,0 +1,177 @@
+# MarketBell release pipeline:
+# SOURCE -> TEST -> SECURITY SCAN -> BUILD -> IMAGE SCAN -> PACKAGE -> STAGING VALIDATION -> APPROVAL -> PRODUCTION -> SMOKE
+#
+# Azure access uses GitHub OIDC federation (azure/login with client-id; no stored client secret).
+# Required repository/environment configuration (see docs/AZURE_DEPLOYMENT_RUNBOOK.md):
+#   vars:    AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID, AZURE_RG_STAGING, AZURE_RG_PRODUCTION,
+#            ACR_NAME, STAGING_ORIGIN, PRODUCTION_ORIGIN
+#   envs:    'staging' and 'production' (production with required reviewers = explicit approval)
+# Hardening note: pin third-party actions to full commit SHAs (Dependabot can maintain them).
+name: release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: ci-only-not-a-secret
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: python -m pip install --require-hashes --no-deps -r requirements.container.lock
+      - name: Unit and regression tests (SQLite)
+        run: node --test test/domain.test.js && python -B -m unittest discover -s test -p 'test_*.py'
+      - name: Same suite on PostgreSQL 16 (production engine)
+        env:
+          MARKETBELL_TEST_DATABASE_URL: postgresql://postgres:ci-only-not-a-secret@127.0.0.1:5432/postgres
+        run: python -B -m unittest discover -s test -p 'test_*.py'
+      - run: node scripts/check.mjs
+
+  security:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install pip-audit==2.10.1 bandit==1.9.4
+      - name: Dependency vulnerabilities
+        run: pip-audit -r requirements.lock --strict
+      - name: Static analysis (medium+)
+        run: bandit -q -r backend -ll
+      - name: Secret scan (working tree + full history)
+        run: |
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.24.2 detect --source /repo --redact --no-banner
+      - name: IaC compile and lint
+        run: |
+          az bicep install
+          az bicep build --file infra/azure/main.bicep --stdout > /dev/null
+          az bicep lint --file infra/azure/main.bicep
+
+  build:
+    needs: [test, security]
+    runs-on: ubuntu-24.04
+    outputs:
+      base_digest: ${{ steps.base.outputs.digest }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve base image to an immutable digest
+        id: base
+        run: |
+          digest=$(docker buildx imagetools inspect python:3.12-slim-bookworm --format '{{json .Manifest.Digest}}' | tr -d '"')
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+      - name: Build image
+        run: |
+          docker build --build-arg BASE_IMAGE=python:3.12-slim-bookworm@${{ steps.base.outputs.digest }} \
+            --label org.opencontainers.image.revision=${{ github.sha }} -t marketbell:${{ github.sha }} .
+      - name: Image vulnerability scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: marketbell:${{ github.sha }}
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: '1'
+      - name: Image must run as non-root and contain no secret files
+        run: |
+          test "$(docker inspect -f '{{.Config.User}}' marketbell:${{ github.sha }})" = "10001:10001"
+          ! docker run --rm --entrypoint sh marketbell:${{ github.sha }} -c 'find /app /opt/venv -xdev \( -name ".env" -o -name ".env.*" -o -name "*KEY*.txt" -o -name "*.key" -o -name "*.sqlite3*" \) 2>/dev/null' | grep .
+      - name: Local container smoke (SQLite fallback, production-like)
+        run: |
+          docker run -d --name smoke -p 8080:8080 -e MARKETBELL_PUBLIC_ORIGIN=https://smoke.test --read-only --tmpfs /tmp --tmpfs /data:uid=10001,gid=10001 marketbell:${{ github.sha }}
+          for i in $(seq 30); do curl -fsS -H 'Host: smoke.test' http://127.0.0.1:8080/healthz && break; sleep 2; done
+          curl -fsS -H 'Host: smoke.test' http://127.0.0.1:8080/healthz | grep '"database": "ready"'
+      - name: Save image artifact
+        run: docker save marketbell:${{ github.sha }} | gzip > image.tar.gz
+      - uses: actions/upload-artifact@v4
+        with: { name: image, path: image.tar.gz, retention-days: 7 }
+
+  package-and-staging:
+    if: github.ref == 'refs/heads/main' && vars.AZURE_CLIENT_ID != ''
+    needs: build
+    runs-on: ubuntu-24.04
+    environment: staging
+    permissions: { id-token: write, contents: read }
+    outputs:
+      image: ${{ steps.push.outputs.image }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: image }
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Push to ACR and record the immutable digest
+        id: push
+        run: |
+          gunzip -c image.tar.gz | docker load
+          az acr login --name ${{ vars.ACR_NAME }}
+          ref=${{ vars.ACR_NAME }}.azurecr.io/marketbell:${{ github.sha }}
+          docker tag marketbell:${{ github.sha }} $ref && docker push $ref
+          digest=$(az acr repository show --name ${{ vars.ACR_NAME }} --image marketbell:${{ github.sha }} --query digest -o tsv)
+          echo "image=${{ vars.ACR_NAME }}.azurecr.io/marketbell@$digest" >> "$GITHUB_OUTPUT"
+      - name: What-if (no changes applied)
+        run: |
+          az deployment group what-if -g ${{ vars.AZURE_RG_STAGING }} -f infra/azure/main.bicep -p infra/azure/staging.bicepparam \
+            -p deployApps=true image=${{ steps.push.outputs.image }}
+      - name: Deploy staging
+        run: |
+          az deployment group create -g ${{ vars.AZURE_RG_STAGING }} -f infra/azure/main.bicep -p infra/azure/staging.bicepparam \
+            -p deployApps=true image=${{ steps.push.outputs.image }} --name release-${{ github.run_number }}
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Staging smoke (includes fresh worker heartbeat)
+        run: pip install requests==2.34.2 && python -m scripts.smoke ${{ vars.STAGING_ORIGIN }} --wait-worker 300
+
+  production:
+    needs: package-and-staging
+    runs-on: ubuntu-24.04
+    environment: production   # required reviewers = explicit approval gate
+    permissions: { id-token: write, contents: read }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Record the currently running image for rollback
+        run: |
+          az containerapp show -g ${{ vars.AZURE_RG_PRODUCTION }} -n mktbell-production-api --query 'properties.template.containers[0].image' -o tsv > previous-image.txt || echo none > previous-image.txt
+          cat previous-image.txt
+      - uses: actions/upload-artifact@v4
+        with: { name: rollback-reference, path: previous-image.txt }
+      - name: What-if
+        run: |
+          az deployment group what-if -g ${{ vars.AZURE_RG_PRODUCTION }} -f infra/azure/main.bicep -p infra/azure/production.bicepparam \
+            -p deployApps=true image=${{ needs.package-and-staging.outputs.image }}
+      - name: Deploy the same digest that passed staging
+        run: |
+          az deployment group create -g ${{ vars.AZURE_RG_PRODUCTION }} -f infra/azure/main.bicep -p infra/azure/production.bicepparam \
+            -p deployApps=true image=${{ needs.package-and-staging.outputs.image }} --name release-${{ github.run_number }}
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Production smoke
+        run: pip install requests==2.34.2 && python -m scripts.smoke ${{ vars.PRODUCTION_ORIGIN }} --wait-worker 300
