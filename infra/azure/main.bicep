@@ -609,6 +609,9 @@ resource rules 'Microsoft.Insights/scheduledQueryRules@2023-03-15-preview' = [fo
       }]
     }
     autoMitigate: true
+    // The container log table appears only after the apps first write logs, so the queries cannot be
+    // validated on the first deployment.
+    skipQueryValidation: true
     actions: { actionGroups: [actions.id] }
   }
 }]
