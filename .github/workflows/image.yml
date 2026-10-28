@@ -1,0 +1,43 @@
+# Builds the production image with BuildKit and publishes it to GitHub Container Registry.
+# Azure then copies it into the private registry with `az acr import` (ACR Tasks are not
+# available on every subscription). No Azure credentials are stored in GitHub for this.
+name: image
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  image:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - id: name
+        run: echo "repo=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+      - id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          provenance: false
+          tags: |
+            ${{ steps.name.outputs.repo }}:${{ github.sha }}
+            ${{ steps.name.outputs.repo }}:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+      - name: Summary
+        run: |
+          echo "Image: ${{ steps.name.outputs.repo }}:${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Digest: ${{ steps.build.outputs.digest }}" >> "$GITHUB_STEP_SUMMARY"
