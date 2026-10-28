@@ -86,7 +86,7 @@ jobs:
           docker build --build-arg BASE_IMAGE=python:3.12-slim-bookworm@${{ steps.base.outputs.digest }} \
             --label org.opencontainers.image.revision=${{ github.sha }} -t marketbell:${{ github.sha }} .
       - name: Image vulnerability scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@915b19bbe73b92a6cf82a1bc12b087c9a19a5fe2 # v0.28.0
         with:
           image-ref: marketbell:${{ github.sha }}
           severity: CRITICAL,HIGH
