@@ -298,10 +298,16 @@ class Leasing(Base):
         self.assertEqual((row['status'], row['attempts'], row['lease_owner']), ('queued', 0, None))
 
     def test_parallel_slots_process_each_job_once(self):
-        calls = []
+        calls, active, peak, lock = [], [0], [0], threading.Lock()
         class SlowAI(FakeAI):
             def analyze(inner, stage, event):
-                calls.append((event['id'], stage)); time.sleep(0.2)
+                with lock:
+                    calls.append((event['id'], stage)); active[0] += 1; peak[0] = max(peak[0], active[0])
+                try:
+                    time.sleep(0.2)
+                finally:
+                    with lock:
+                        active[0] -= 1
                 return FakeAI.analyze(inner, stage, event)
         engine = Engine(self.store, SlowAI())
         with patch.dict(os.environ, {'MARKETBELL_WORKER_CONCURRENCY': '4'}):
@@ -309,14 +315,16 @@ class Leasing(Base):
         with patch.object(Worker, 'execute', lambda w, tenant, kind, payload: engine.investigate(tenant, engine.ingest(tenant, package(payload['s']))['id'])):
             for s in ('PSX', 'VLO', 'NVDA', 'JPM'):
                 worker.enqueue('a', 'x', {'s': s})
-            started = time.time(); worker.start()
+            worker.start()
             try:
                 self.assertTrue(wait_until(lambda: self.done_count() == 4, 20))
             finally:
                 worker.shutdown(5)
         self.assertEqual(len(calls), 8)  # 4 cases x (research, challenge), no duplicates
         self.assertEqual(len(set(calls)), 8)
-        self.assertLess(time.time() - started, 1.6 * 4 * 0.4)  # materially faster than serial
+        # Slots really run in parallel. Measured as overlapping model calls, not wall-clock time, which
+        # depends on the machine (a busy 2-core CI runner exceeded a fixed time bound).
+        self.assertGreaterEqual(peak[0], 2)
 
     def done_count(self):
         with self.store.connect() as db:
