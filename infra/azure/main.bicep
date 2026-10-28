@@ -42,6 +42,9 @@ param pgAdminPrincipalName string
 @allowed(['User', 'Group', 'ServicePrincipal'])
 param pgAdminPrincipalType string = 'User'
 
+@description('Create/update the Entra database administrator. Set false after the first platform deployment: PostgreSQL stores role names truncated to 63 characters, so re-applying a longer principal name fails with "role already exists".')
+param managePgAdmin bool = true
+
 @description('Fresh Nemotron inference from the web workspace (corrections, ad-hoc investigations). Autonomous monitoring is unaffected.')
 param allowInteractiveLive bool = false
 
@@ -253,7 +256,7 @@ resource pg 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
   dependsOn: [pgDnsLink]
 }
 
-resource pgAdmin 'Microsoft.DBforPostgreSQL/flexibleServers/administrators@2024-08-01' = {
+resource pgAdmin 'Microsoft.DBforPostgreSQL/flexibleServers/administrators@2024-08-01' = if (managePgAdmin) {
   parent: pg
   name: pgAdminObjectId
   properties: {
