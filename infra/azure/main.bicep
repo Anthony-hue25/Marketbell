@@ -45,6 +45,9 @@ param pgAdminPrincipalType string = 'User'
 @description('Create/update the Entra database administrator. Set false after the first platform deployment: PostgreSQL stores role names truncated to 63 characters, so re-applying a longer principal name fails with "role already exists".')
 param managePgAdmin bool = true
 
+@description('Give the worker completed-session daily bars from Alpaca (read-only market data, no trading). Requires Key Vault secrets alpaca-key-id and alpaca-secret-key. Without it, price-dependent reviews fail closed with NO_CURRENT_MARKET_DATA.')
+param alpacaMarketData bool = false
+
 @description('Fresh Nemotron inference from the web workspace (corrections, ad-hoc investigations). Autonomous monitoring is unaffected.')
 param allowInteractiveLive bool = false
 
@@ -359,6 +362,16 @@ var identity = {
   type: 'UserAssigned'
   userAssignedIdentities: { '${appIdentity.id}': {} }
 }
+// Optional read-only market data for the worker (Alpaca daily bars). Values live only in Key Vault.
+var alpacaSecrets = alpacaMarketData ? [
+  { name: 'alpaca-key-id', keyVaultUrl: '${kvSecret}alpaca-key-id', identity: appIdentity.id }
+  { name: 'alpaca-secret-key', keyVaultUrl: '${kvSecret}alpaca-secret-key', identity: appIdentity.id }
+] : []
+var alpacaEnv = alpacaMarketData ? [
+  { name: 'APCA_API_KEY_ID', secretRef: 'alpaca-key-id' }
+  { name: 'APCA_API_SECRET_KEY', secretRef: 'alpaca-secret-key' }
+] : []
+
 var commonEnv = [
   { name: 'MARKETBELL_ENV', value: production ? 'production' : 'staging' }
   { name: 'MARKETBELL_DATABASE_URL', value: databaseUrl }
@@ -437,9 +450,9 @@ resource worker 'Microsoft.App/containerApps@2024-03-01' = if (deployApps && wor
     configuration: {
       activeRevisionsMode: 'Single'
       registries: registry
-      secrets: [
+      secrets: concat([
         { name: 'nebius-api-key', keyVaultUrl: '${kvSecret}nebius-api-key', identity: appIdentity.id }
-      ]
+      ], alpacaSecrets)
     }
     template: {
       terminationGracePeriodSeconds: 60
@@ -458,7 +471,7 @@ resource worker 'Microsoft.App/containerApps@2024-03-01' = if (deployApps && wor
           { name: 'MARKETBELL_SHUTDOWN_GRACE_SECONDS', value: '45' }
           { name: 'MARKETBELL_HEALTH_PORT', value: '8081' }
           { name: 'NEBIUS_API_KEY', secretRef: 'nebius-api-key' }
-        ])
+        ], alpacaEnv)
         probes: [
           { type: 'Startup', httpGet: { path: '/livez', port: 8081 }, initialDelaySeconds: 3, periodSeconds: 5, failureThreshold: 60 }
           { type: 'Liveness', httpGet: { path: '/livez', port: 8081 }, periodSeconds: 30, failureThreshold: 3 }
@@ -482,7 +495,7 @@ var workerEnv = concat(commonEnv, [
   { name: 'MARKETBELL_WORKER_CONCURRENCY', value: workerConcurrency }
   { name: 'MARKETBELL_RUN_ONCE_SECONDS', value: '240' }
   { name: 'NEBIUS_API_KEY', secretRef: 'nebius-api-key' }
-])
+], alpacaEnv)
 
 // Scheduled alternative: one bounded pass every 5 minutes; leases prevent overlapping runs.
 resource workerJob 'Microsoft.App/jobs@2024-03-01' = if (deployApps && workerMode == 'scheduled') {
@@ -499,9 +512,9 @@ resource workerJob 'Microsoft.App/jobs@2024-03-01' = if (deployApps && workerMod
       replicaRetryLimit: 0
       scheduleTriggerConfig: { cronExpression: workerCron, parallelism: 1, replicaCompletionCount: 1 }
       registries: registry
-      secrets: [
+      secrets: concat([
         { name: 'nebius-api-key', keyVaultUrl: '${kvSecret}nebius-api-key', identity: appIdentity.id }
-      ]
+      ], alpacaSecrets)
     }
     template: {
       containers: [{
