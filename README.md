@@ -11,6 +11,8 @@ itself, inside limits that code enforces every time.
 > MarketBell never trades. It has no brokerage endpoint, no order route and no way to move money. The only action it
 > can take is preparing a research consideration note (and organising a research watchlist within your mandate).
 
+**Live demo:** <https://mktbell-staging-api.thankfulbay-c353476e.centralus.azurecontainerapps.io> (Azure Container Apps; isolated demo workspace per visitor, no sign-in needed)
+
 Built for the Nebius Global AI Hackathon · Track: Best Apps and Agents.
 
 ---
